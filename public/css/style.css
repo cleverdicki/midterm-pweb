@@ -1,0 +1,127 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+header {
+    background: #0F9BD1;
+    padding: 30px;
+    width: 100%;
+    height: 30px;
+}
+
+.left_area h3 {
+    color: #fff;
+    margin-top: -2.5rem;
+    font-size: 22px;
+    font-weight: 900;
+}
+
+.left_area span {
+    color: #4DCAFB;
+}
+
+.logout_btn {
+    padding: 5px;
+    background: #02B6FB;
+    text-decoration: none;
+    float: right;
+    margin-top: -2.25rem;
+    margin-right: 40px;
+    border-radius: 2px;
+    font-size: 15px;
+    font-weight: 600;
+    color: #fff;
+}
+
+.logout_btn:hover {
+    background: #029BD6;
+}
+
+.sidebar {
+    background: #001923;
+    position: fixed;
+    left: 0;
+    width: 250px;
+    height: 100%;
+    transition: 0.5s;
+}
+
+.sidebar .admin {
+    width: 250px;
+    height: 150px;
+    color: #fff;
+    text-align: center;
+}
+
+.sidebar .admin .image {
+    margin-top: 1rem;
+    margin-left: auto;
+    margin-left: auto;
+    margin-bottom: 0.5rem;
+    width: 80px;
+}
+
+.sidebar .admin span {
+    font-size: 15px;
+}
+
+.sidebar a {
+    color: #fff;
+    display: block;
+    width: 100%;
+    line-height: 60px;
+    text-decoration: none;
+    padding-left: 40px;
+    box-sizing: border-box;
+}
+
+.sidebar a:hover {
+    background: #2A9AC5;
+}
+
+.sidebar i {
+    padding-right: 10px;
+}
+
+label #sidebar_btn {
+    z-index: 1;
+    color: #fff;
+    position: fixed;
+    cursor: pointer;
+    margin-top: -1.25rem;
+    left: 175px;
+    font-size: 20px;
+}
+
+label #sidebar_btn:hover {
+    color: #004965;
+}
+
+#check:checked~.sidebar {
+    left: -190px;
+}
+
+#check:checked~.sidebar a span {
+    display: none;
+}
+
+#check:checked~.sidebar a {
+    font-size: 20px;
+    margin-left: 170px;
+    width: 80px;
+}
+
+#check {
+    display: none;
+}
+
+.content {
+    margin-left: 250px;
+    transition: 0.5s;
+}
+
+#check:checked~.content {
+    margin-left: 60px;
+}
