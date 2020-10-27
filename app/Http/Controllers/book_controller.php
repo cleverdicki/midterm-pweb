@@ -41,4 +41,24 @@ class book_controller extends Controller
         \Session::flash('success', 'Book has been deleted');
         // return redirect('../book');
     }
+
+    public function addrev(){
+        $title = 'Add Review';
+
+        return view('book.book_addrev',compact('title'));
+    }
+
+    public function storerev(Request $request){
+        $title = $request->title;
+        $addreview = $request->addreview;
+
+        \DB::table('book_review')->insert([ //tabel review blm ada
+            'title'=>$title,
+            'addreview'=>$addreview,
+            'created_at'=>date('Y-m-d H:i:s'),
+            'updated_at'=>date('Y-m-d H:i:s'),
+        ]);
+
+        return redirect('../book/..');
+    }
 }

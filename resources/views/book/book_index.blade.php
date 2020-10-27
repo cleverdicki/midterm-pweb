@@ -1,4 +1,4 @@
-@extends('layout.dashboard')
+@extends('layouts.dashboard')
 
 @section('content')
 
@@ -45,7 +45,7 @@
                                 <p>
                                     <a href="{{ url{'../book/'.$dt->id} }}" class="btn btn-flat btn-xs btn-warning"><i class="fa fa-pencil"></i></a>
                                     <a href="{{ url{'../book/'.$dt->id} }}" class="btn btn-flat btn-xs btn-danger btn-delete"><i class="fa fa-trash"></i></a>
-                                    <a href="{{ url{'../book/'.$dt->id} }}" class="btn btn-flat btn-xs btn-success btn-review"><i class="fa fa-info"></i></a>
+                                    <a href="{{ url{'../book/'.$dt->id} }}" class="btn btn-flat btn-xs btn-success btn-review"><i class="fa fa-plus"></i></a>
                                 </p>
                             </td>
                         </tr>
