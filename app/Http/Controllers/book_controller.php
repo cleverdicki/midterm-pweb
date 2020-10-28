@@ -59,6 +59,7 @@ class book_controller extends Controller
             'updated_at'=>date('Y-m-d H:i:s'),
         ]);
 
+        \Session::flash('success', 'Your review has been added!');
         return redirect('../book/..');
     }
 }

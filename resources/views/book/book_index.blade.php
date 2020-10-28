@@ -97,6 +97,12 @@
 
 <script type="text/javascript">
     $(document).ready(function(){
+        var flash = "{{ Session::has('success') }}";
+        if (flash){
+            var msg = "{{ Session::get(''success') }}";
+            alert msg;
+        }
+        
         $('.btn-refresh').click(function(e){
             e.preventDefault();
             location.reload();
