@@ -7,6 +7,9 @@
         <p>
             <button class="btn btn-flat btn-sm btn-warning btn-refresh"><i class="fa fa-refresh"></i> Refresh</button>
         </p>
+        <p>
+            <a href="/bookrev/addrev" class="btn btn-flat btn-primary btn-plus">Add Review</a>
+        </p>
         <div class="box box-warning">
             <div class="box-header">
                 <h4>{{ $title }}</h4>
@@ -15,15 +18,8 @@
                 <table class="table table-hover myTable">
                     <thead>
                         <tr>
-                            <th>ID</th>
-                            <th>Genre</th>
-                            <th>ISBN</th>
-                            <th>Title</th>
-                            <th>Writer</th>
-                            <th>Publisher</th>
-                            <th>Year</th>
-                            <th>Description</th>
-                            <th>Stock</th>
+                            <th>title</th>
+                            <th>Book Review</th>
                             <th>Created At</th>
                             <th>Action</th>
                         </tr>
@@ -32,20 +28,13 @@
                         @foreach($data as $e=>$dt)
                         <tr>
                             <td>{{ $e+1 }}</td>
-                            <td>{{ $dt->genre }}</td>
-                            <td>{{ $dt->ISBN }}</td>
                             <td>{{ $dt->title }}</td>
-                            <td>{{ $dt->writer }}</td>
-                            <td>{{ $dt->publisher }}</td>
-                            <td>{{ $dt->year }}</td>
-                            <td>{{ $dt->desc }}</td>
-                            <td>{{ $dt->stock }}</td>
+                            <td>{{ $dt->Book_Review }}</td>
                             <td>{{ $dt->created_at }}</td>
                             <td>
                                 <p>
                                     <a href="{{ url{'../book/'.$dt->id} }}" class="btn btn-flat btn-xs btn-warning"><i class="fa fa-pencil"></i></a>
                                     <a href="{{ url{'../book/'.$dt->id} }}" class="btn btn-flat btn-xs btn-danger btn-delete"><i class="fa fa-trash"></i></a>
-                                    <a href="{{ url{'../book/'.$dt->id} }}" class="btn btn-flat btn-xs btn-success btn-review"><i class="fa fa-plus"></i></a>
                                 </p>
                             </td>
                         </tr>
@@ -73,7 +62,7 @@
  
             <div class="py-3 text-center">
               <i class="ni ni-bell-55 ni-3x"></i>
-              <h4 class="heading mt-4">Do you really want to delete this book?</h4>
+              <h4 class="heading mt-4">Do you really want to delete this review?</h4>
             </div>
  
           </div>

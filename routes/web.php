@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,10 +38,12 @@ Route::group(['middleware'=>'auth'], function(){
     Route::delete('../genre/{id}', 'Genre_controller@delete');
 
     // book
-    Route::get('../genre', 'Genre_controller@index');
-    Route::get('../genre', 'Genre_controller@add');
-    Route::post('../genre', 'Genre_controller@store');
-    Route::get('../genre', 'Genre_controller@edit');
+    Route::get('/dashboard/book', 'book_controller@index');
+    Route::get('/dashboard/book', 'book_controller@add');
+    Route::post('/dashboard/book', 'book_controller@store');
+    Route::get('dashboard/book', 'book_controller@edit');
+
+    Route::get('/dashboard/bookrev', 'bookrev_controller@index');
 });
 
 //transaction

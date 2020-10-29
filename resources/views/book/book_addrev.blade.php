@@ -1,4 +1,4 @@
-@extends('layouts.dashboard')
+@extends('layouts.index')
 
 @section('content')
 
@@ -12,7 +12,7 @@
                 <h4>Review {{ $title }}</h4>
             </div>
             <div class="box-body">
-                <form role="form" method="post" action="{{ url('../book/addrev) }}">
+                <form role="form" method="post" action="{{ url('../book/bookrev_index) }}">
                     {{ csrf_field() }}
                     <div class="box-body">
                         <div class="form-group">
