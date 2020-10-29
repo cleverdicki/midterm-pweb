@@ -18,7 +18,7 @@ Route::get('/', function () {
 });
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return view('layouts.index');
+    return view('dashboard');
 })->name('dashboard');
 
 // Route::group(['middleware'=>'auth'], function(){
@@ -42,3 +42,9 @@ Route::group(['middleware'=>'auth'], function(){
     Route::post('../genre', 'Genre_controller@store');
     Route::get('../genre', 'Genre_controller@edit');
 });
+
+//transaction
+Route::get('dashboard', 'App\Http\Controllers\TransactionController@index');
+Route::get('/dashboard/create', 'App\Http\Controllers\TransactionController@create');
+Route::post('/dashboard/store', 'App\Http\Controllers\TransactionController@store');
+

@@ -1,15 +1,45 @@
-<x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dashboard') }}
-        </h2>
-    </x-slot>
+@extends('layouts.index')
 
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
-                <x-jet-welcome />
+    @section('content')
+    <div class="container">
+            <div class="card mt-5">
+                <div class="card-header text-center">
+                    <strong>Transaction Data</strong>
+                </div>
+                <div class="card-body">
+                    <a href="/dashboard/create" class="btn btn-primary">Add Transaction</a>
+                    <br/>
+                    <br/>
+                    <table class="table table-bordered table-hover table-striped">
+                        <thead>
+                            <tr>
+                                <th>No</th>
+            <th>User ID</th>
+            <th>Borrow Date</th>
+            <th>Return Date</th>
+            <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                          <?php $no=1; ?>
+       @foreach($transaction as $key => $value)
+           <tr>
+               <td>{{$no++}}</td>
+               <th>{{auth()->user()->name}}</th>
+               <td>{{$value->borrow_date}}</td>
+               <td>{{$value->return_date}}</td>
+               <td>{{$value->status}}</td>
+
+           </tr>
+       @endforeach
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
-    </div>
-</x-app-layout>
+    @endsection
+
+
+
+
+

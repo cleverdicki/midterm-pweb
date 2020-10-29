@@ -11,7 +11,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
 
-    <title>Hello, world!</title>
+    <!-- Boxicons -->
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+
+    <title>Midterm PWEB</title>
 </head>
 
 <body>
@@ -40,9 +43,11 @@
         <a href="#"><i class="fas fa-file-download"></i><span>Download Report</span></a>
     </div>
 
+
     <div class="content">
         <div class="container">
-            <h1>This is content</h1>
+            @yield('content')
+           <!--<h1>This is content</h1>-->
         </div>
     </div>
 
