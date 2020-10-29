@@ -14,7 +14,7 @@
                         <thead>
                             <tr>
                                 <th>No</th>
-            <th>User ID</th>
+            <th>Name</th>
             <th>Borrow Date</th>
             <th>Return Date</th>
             <th>Status</th>
