@@ -27,7 +27,7 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 //     Route::get('/dashboard', 'dashboard');
 // });
 
-Route::group(['middleware'=>'auth'], function(){
+Route::group(['middleware' => 'auth'], function () {
 
     // genre
     Route::get('../genre', 'Genre_controller@index');
@@ -51,3 +51,6 @@ Route::get('dashboard', 'App\Http\Controllers\TransactionController@index');
 Route::get('/dashboard/create', 'App\Http\Controllers\TransactionController@create');
 Route::post('/dashboard/store', 'App\Http\Controllers\TransactionController@store');
 
+//Book
+Route::get('/addBook', 'App\Http\Controllers\book_controller@addbookview');
+Route::post('addBook', 'App\Http\Controllers\book_controller@addbookstore');

@@ -88,7 +88,7 @@ header {
 label #sidebar_btn {
     z-index: 1;
     color: #fff;
-    position: fixed;
+    position: relative;
     cursor: pointer;
     margin-top: -1.25rem;
     left: 175px;

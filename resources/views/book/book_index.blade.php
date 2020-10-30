@@ -9,7 +9,7 @@
         </p>
         <div class="box box-warning">
             <div class="box-header">
-                <h4>{{ $title }}</h4>
+                {{-- <h4>{{ $title }}</h4> --}}
             </div>
             <div class="box-body">
                 <table class="table table-hover myTable">
@@ -29,8 +29,9 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach($data as $e=>$dt)
+                        @foreach($data as $dt)
                         <tr>
+                            <th scope="row">{{ $loop->iteration }}</th>
                             <td>{{ $e+1 }}</td>
                             <td>{{ $dt->genre }}</td>
                             <td>{{ $dt->ISBN }}</td>
@@ -43,9 +44,9 @@
                             <td>{{ $dt->created_at }}</td>
                             <td>
                                 <p>
-                                    <a href="{{ url{'../book/'.$dt->id} }}" class="btn btn-flat btn-xs btn-warning"><i class="fa fa-pencil"></i></a>
-                                    <a href="{{ url{'../book/'.$dt->id} }}" class="btn btn-flat btn-xs btn-danger btn-delete"><i class="fa fa-trash"></i></a>
-                                    <a href="{{ url{'../book/'.$dt->id} }}" class="btn btn-flat btn-xs btn-success btn-review"><i class="fa fa-plus"></i></a>
+                                    <a href="{{ url('../book/'.$dt->id) }}" class="btn btn-flat btn-xs btn-warning"><i class="fa fa-pencil"></i></a>
+                                    <a href="{{ url('../book/'.$dt->id) }}" class="btn btn-flat btn-xs btn-danger btn-delete"><i class="fa fa-trash"></i></a>
+                                    <a href="{{ url('../book/'.$dt->id) }}" class="btn btn-flat btn-xs btn-success btn-review"><i class="fa fa-plus"></i></a>
                                 </p>
                             </td>
                         </tr>
@@ -99,7 +100,7 @@
     $(document).ready(function(){
         var flash = "{{ Session::has('success') }}";
         if (flash){
-            var msg = "{{ Session::get(''success') }}";
+            var msg = "{{ Session::get('success') }}";
             alert msg;
         }
         
