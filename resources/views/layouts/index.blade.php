@@ -27,7 +27,10 @@
             <h3>myPerpus</h3>
         </div>
         <div class="right_area">
-            <a href="#" class="logout_btn">Logout</a>
+            <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="logout_btn">{{ __('Logout') }}</a>
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                        @csrf
+                                    </form>
         </div>
     </header>
 
