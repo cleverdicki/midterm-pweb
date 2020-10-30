@@ -4,12 +4,17 @@
 
 <div class="row">
     <div class="col-md-12">
+        @if (session('status'))
+        <div class="alert alert-success">
+            {{session('status')}}
+        </div>
+        @endif
         <p>
-            <button class="btn btn-flat btn-sm btn-warning btn-refresh"><i class="fa fa-refresh"></i> Refresh</button>
+            <button class="btn btn-flat btn-sm btn-warning btn-refresh mt-2"><i class="fa fa-refresh"></i> Refresh</button>
         </p>
         <div class="box box-warning">
             <div class="box-header">
-                {{-- <h4>{{ $title }}</h4> --}}
+                <h4>{{ $title }}</h4>
             </div>
             <div class="box-body">
                 <table class="table table-hover myTable">
@@ -32,7 +37,7 @@
                         @foreach($data as $dt)
                         <tr>
                             <th scope="row">{{ $loop->iteration }}</th>
-                            <td>{{ $e+1 }}</td>
+                            {{-- <td>{{ $e+1 }}</td> --}}
                             <td>{{ $dt->genre }}</td>
                             <td>{{ $dt->ISBN }}</td>
                             <td>{{ $dt->title }}</td>
@@ -44,7 +49,7 @@
                             <td>{{ $dt->created_at }}</td>
                             <td>
                                 <p>
-                                    <a href="{{ url('../book/'.$dt->id) }}" class="btn btn-flat btn-xs btn-warning"><i class="fa fa-pencil"></i></a>
+                                    <a href="{{ url('listofbook/edit/'.$dt->id) }}" class="btn btn-flat btn-xs btn-warning"><i class="fa fa-edit"></i></a>
                                     <a href="{{ url('../book/'.$dt->id) }}" class="btn btn-flat btn-xs btn-danger btn-delete"><i class="fa fa-trash"></i></a>
                                     <a href="{{ url('../book/'.$dt->id) }}" class="btn btn-flat btn-xs btn-success btn-review"><i class="fa fa-plus"></i></a>
                                 </p>

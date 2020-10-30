@@ -38,9 +38,9 @@
             <br>
             <span>ADMIN NAME</span>
         </div>
-        <a href="{{ url('dashboard') }}"><i class="fas fa-desktop"></i><span>Dashboard</span></a>
-        <a href="#"><i class="fas fa-book-open"></i><span>List Book</span></a>
-        <a href="{{ url('addBook') }}"><i class="fas fa-plus"></i><span>Add Book</span></a>
+        <a href="{{ url('/dashboard') }}"><i class="fas fa-desktop"></i><span>Dashboard</span></a>
+        <a href="{{ url('/listofbook') }}"><i class="fas fa-book-open"></i><span>List Book</span></a>
+        <a href="{{ url('/addBook') }}"><i class="fas fa-plus"></i><span>Add Book</span></a>
         <a href="#"><i class="fas fa-file-download"></i><span>Download Report</span></a>
     </div>
 
