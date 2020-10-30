@@ -39,7 +39,7 @@ npm install; npm run dev
 php artisan migrate
 ```
 
-**7. Run the app**
+**7. Run the web**
 ```
 php artisan serve
 ```
