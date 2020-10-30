@@ -31,7 +31,7 @@ npm install; npm run dev
 
 **5. Database Setup**
 * Create `perpus0` database on your localhost.
-* Create `.env` file on your IDE or text editor, then move everything from `.env.example` to `.env` file.
+* Create `.env` file in your IDE or text editor, then move everything from `.env.example` to `.env` file.
 * Change `DB_DATABASE=laravel` to `DB_DATABASE=perpus0` in `.env` file.
 
 **6. Migration**
