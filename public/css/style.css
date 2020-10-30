@@ -41,10 +41,10 @@ header {
 
 .sidebar {
     background: #001923;
-    position: fixed;
+    position: relative;
     left: 0;
     width: 250px;
-    height: 100%;
+    height: 105vh;
     transition: 0.5s;
 }
 
@@ -120,6 +120,7 @@ label #sidebar_btn:hover {
 .content {
     margin-left: 250px;
     transition: 0.5s;
+    margin-top: -52rem;
 }
 
 #check:checked~.content {

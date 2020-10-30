@@ -22,12 +22,11 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
 
-// Route::group(['middleware'=>'auth'], function(){
-
-//     Route::get('/dashboard', 'dashboard');
-// });
-
 Route::group(['middleware' => 'auth'], function () {
+    //transaction
+    Route::get('/dashboard', 'App\Http\Controllers\TransactionController@index');
+    Route::get('/dashboard/create', 'App\Http\Controllers\TransactionController@create');
+    Route::post('/dashboard/store', 'App\Http\Controllers\TransactionController@store');
 
     // genre
     //Route::get('../genre', 'Genre_controller@index');
@@ -39,19 +38,16 @@ Route::group(['middleware' => 'auth'], function () {
 
     // book
     Route::get('/listofbook', 'App\Http\Controllers\book_controller@index');
+    Route::get('/listofbook/edit/{id}', 'App\Http\Controllers\book_controller@editbook');
+    Route::patch('/listofbook/updatebook/{id}', 'App\Http\Controllers\book_controller@updatebook');
     Route::get('/addBook', 'App\Http\Controllers\book_controller@addbookview');
     Route::post('/addBook', 'App\Http\Controllers\book_controller@addbookstore');
-    Route::get('/listofbook/edit/{id}', 'App\Http\Controllers\book_controller@edit');
-    Route::patch('/updatebook/{id}', 'App\Http\Controllers\book_controller@update');
-    Route::get('/dashboard/book', 'book_controller@add');
-    Route::post('/dashboard/book', 'book_controller@store');
-    Route::get('/dashboard/bookrev', 'bookrev_controller@index');
+    Route::get('/listofbook/bookrev', 'bookrev_controller@index');
+
+    // report
+    Route::get('/report', 'App\Http\Controllers\ReportsController@index');
+    Route::get('/report/trs/pdf', 'App\Http\Controllers\ReportsController@transactionPdf');
+    // Route::get('/report/trs/excl', 'App\Http\Controllers\ReportsController@reportExcl');
+    Route::get('/report/book/pdf', 'App\Http\Controllers\ReportsController@bookPdf');
+    // Route::get('/report/book/excl', 'App\Http\Controllers\ReportsController@bookExcl');
 });
-
-//transaction
-Route::get('/dashboard', 'App\Http\Controllers\TransactionController@index');
-Route::get('/dashboard/create', 'App\Http\Controllers\TransactionController@create');
-Route::post('/dashboard/store', 'App\Http\Controllers\TransactionController@store');
-
-//Book
-// Route::get('/listofbook', 'App\Http\Controllers\book_controller@index');

@@ -44,7 +44,7 @@
         <a href="{{ url('/dashboard') }}"><i class="fas fa-desktop"></i><span>Dashboard</span></a>
         <a href="{{ url('/listofbook') }}"><i class="fas fa-book-open"></i><span>List Book</span></a>
         <a href="{{ url('/addBook') }}"><i class="fas fa-plus"></i><span>Add Book</span></a>
-        <a href="#"><i class="fas fa-file-download"></i><span>Download Report</span></a>
+        <a href="{{ url('/report') }}"><i class="fas fa-file-download"></i><span>Download Report</span></a>
     </div>
 
     <div class="content">
@@ -59,6 +59,7 @@
     <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+    @yield('js')
 
     <!-- Option 2: jQuery, Popper.js, and Bootstrap JS
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

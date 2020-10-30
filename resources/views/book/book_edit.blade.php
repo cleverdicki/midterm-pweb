@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-8">
             <h1 class="mt-3">Form edit data buku</h1>
-            <form method="POST" action="{{ url('/updatebook/'.$dt->id)}}">
+            <form method="POST" action="{{ url('/listofbook/updatebook/'.$dt->id)}}">
                 @method('patch')
                 @csrf
                 <div class="form-group">
