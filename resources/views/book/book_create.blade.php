@@ -17,27 +17,27 @@
                     <input type="text" class="form-control" id="isbn" placeholder="Masukkan ISBN" name="ISBN">
                 </div>
                 <div class="form-group">
-                    <label for="genre_book">Genre buku</label>
+                    <label for="genre_book">Book Genre</label>
                     <input type="text" class="form-control" id="genre_book" placeholder="Masukkan genre buku" name="genre">
                 </div>
                 <div class="form-group">
-                    <label for="quantity_book">Banyak buku</label>
+                    <label for="quantity_book">Book Quantities</label>
                     <input type="text" class="form-control" id="quantity_book" placeholder="Masukkan jumlah buku" name="stock">
                 </div>
                 <div class="form-group">
-                    <label for="writer_book">Penulis</label>
+                    <label for="writer_book">Author</label>
                     <input type="text" class="form-control" id="writer_book" placeholder="Masukkan penulis buku" name="writer">
                 </div>
                 <div class="form-group">
-                    <label for="publisher_book">Penerbit</label>
+                    <label for="publisher_book">Publisher</label>
                     <input type="text" class="form-control" id="publisher_book" placeholder="Masukkan penerbit buku" name="publisher">
                 </div>
                 <div class="form-group">
-                    <label for="year_book">Tahun terbit</label>
+                    <label for="year_book">Year of Issue</label>
                     <input type="text" class="form-control" id="year_book" placeholder="Masukkan tahun terbit buku" name="year">
                 </div>
                 <div class="form-group">
-                    <label for="desc_book">Deskripsi buku</label>
+                    <label for="desc_book">Book Description</label>
                     <input type="text" class="form-control" id="desc_book" placeholder="Masukkan deskripsi buku" name="desc">
                 </div>
                 <button type="submit" class="btn btn-primary mb-3">Tambah data</button>

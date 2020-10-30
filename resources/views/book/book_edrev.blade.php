@@ -12,22 +12,23 @@
                 <h4>Review {{ $title }}</h4>
             </div>
             <div class="box-body">
-                <form role="form" method="post" action="{{ url('../book/bookrev_index) }}">
+                <form role="form" method="post" action="{{ url('/updateRev'. $dt->title) }}">
                     {{ csrf_field() }}
+                    {{ method_field('PUT') }}
                     <div class="box-body">
                         <div class="form-group">
-                            <label for="exampleInputEmail1">Book Title</label>
-                            <input type="text" name="title" class="form-control @error('title') is-invalid @enderror" id="exampleInputEmail1" placeholder="Book Title">
+                            <label for="title">Book Title</label>
+                            <input type="text" name="title" value="{{ $dt->title }}" class="form-control @error('title') is-invalid @enderror" id="title" placeholder="Book Title">
                         </div>
                         <div class="form-group">
-                            <label for="exampleInputPassword1">Book Review</label>
-                            <textarea class="form-control @error('title') is-invalid @enderror summernote" name="addreview" id="addreview" placeholder="Write down your review in this box"></textarea>
+                            <label for="bookreview">Book Review</label>
+                            <textarea class="form-control summernote @error('title') is-invalid @enderror" name="addreview" value="{{ $dt->book_review }}" id="addreview" placeholder="Write down your review in this box"></textarea>
                         </div>
                     </div>
                     <!-- /.box-body -->
         
                     <div class="box-footer">
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <button type="submit" class="btn btn-primary">Update</button>
                     </div>
                 </form>
             </div>
