@@ -13,8 +13,8 @@
             </div>
             <div class="box-body">
                 <form role="form" method="post" action="{{ url('/updateRev'. $dt->title) }}">
-                    {{ csrf_field() }}
-                    {{ method_field('PUT') }}
+                    @method('patch')
+                    @csrf
                     <div class="box-body">
                         <div class="form-group">
                             <label for="title">Book Title</label>
