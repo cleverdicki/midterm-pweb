@@ -36,7 +36,7 @@ class book_controller extends Controller
         return redirect('dashboard')->with('status', 'Add book Successfully!');
     }
 
-    public function edit($id)
+    public function editbook($id)
     {
         $title = 'Edit Book';
         $dt = \DB::table('book_list')->where('id', $id)->first();
@@ -46,7 +46,7 @@ class book_controller extends Controller
         //return view('book.book_edit', compact('title', 'dt', 'genre'));
     }
 
-    public function update(Request $request, $id)
+    public function updatebook(Request $request, $id)
     {
         $genre = $request->genre;
         $ISBN = $request->ISBN;
@@ -56,11 +56,23 @@ class book_controller extends Controller
         $desc = $request->desc;
         $stock = $request->stock;
 
+        \DB::table('book_list')->where('id', $id)->update([
+            'genre'=>$genre,
+            'ISBN'=>$ISBN,
+            'writer'=>$writer,
+            'publisher'=>$publisher,
+            'year'=>$year,
+            'desc'=>$desc,
+            'stock'=>$stock,
+            'updated_at'=>date('Y-m-d H:i:s')
+            
+        ]);
+
         \Session::flash('success', 'Book Information has been updated');
         // return redirect ('../book');
     }
 
-    public function delete($id)
+    public function deletebook($id)
     {
         \DB::table('book_list')->where('id', $id)->delete();
 

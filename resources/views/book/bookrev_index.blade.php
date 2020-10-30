@@ -29,7 +29,7 @@
                         <tr>
                             <td>{{ $e+1 }}</td>
                             <td>{{ $dt->title }}</td>
-                            <td>{{ $dt->Book_Review }}</td>
+                            <td>{{ $dt->book_review }}</td>
                             <td>{{ $dt->created_at }}</td>
                             <td>
                                 <p>

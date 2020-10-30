@@ -13,7 +13,7 @@ class bookrev_controller extends Controller
         return view('book.bookrev_index', compact('title', 'data'));
     }
 
-    public function edit($title){
+    public function editrev($title){
         $title = 'Edit Book';
         $dt = \DB::table('book_rev')->where('title', $title)->first();
         //$genre =\DB::table('tabel genre')->get();
@@ -22,16 +22,22 @@ class bookrev_controller extends Controller
         //return view('book.book_edrev', compact('title', 'dt', 'genre'));
     }
 
-    public function update(Request $request,$title){
+    public function updaterev(Request $request, $title){
         $title = $request->title;
         $bookreview = $request->bookreview;
+
+        \DB::table('book_rev')->where('title', $title)->update([
+            'bookreview'=>$bookreview,
+            'updated_at'=>date('Y-m-d H:i:s')
+            
+        ]);
 
         \Session::flash('success', 'Review has been updated');
         // return redirect ('../book');
     }
 
-    public function delete($title){
-        \DB::table('book_rev')->where('id', $title)->delete();
+    public function deleterev($title){
+        \DB::table('book_rev')->where('tile', $title)->delete();
 
         \Session::flash('success', 'Review has been deleted');
         // return redirect('../book');
