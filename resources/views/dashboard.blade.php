@@ -1,7 +1,7 @@
 @extends('layouts.index')
 
 @section('content')
-<div class="container">
+<div class="container d-flex">
     @if (session('status'))
         <div class="alert alert-success">
             {{session('status')}}
