@@ -31,7 +31,7 @@ class TransactionController extends Controller
     {
         //Transaction::create($request->all()); //Fungsi untuk menyimpan semua data input
 
-        Transaction::create([
+        $data = Transaction::create([
             'username' => $request->username,
             'book'=>  $request->book,
             'Borrow_date' => $request->borrow_date,
@@ -39,7 +39,7 @@ class TransactionController extends Controller
             'keterangan' => $request->keterangan
         ]);
 
-        return redirect('/dashboard');
+        return redirect('dashboard');
     }
 
     public function update($id)

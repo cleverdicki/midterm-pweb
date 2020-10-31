@@ -12,7 +12,7 @@
     background: linear-gradient(#687587, #404853);
     border-left: 1px solid rgba(0, 0, 0, 0.2);
     border-right: 1px solid rgba(255, 255, 255, 0.1);
-    color: #fff;
+    color: #000;
     padding: 8px;
     text-align: left;
     text-transform: uppercase;
@@ -91,6 +91,9 @@
                     Name
                 </th>
                 <th>
+                    Book
+                </th>
+                <th>
                     Borrow Date
                 </th>
                 <th>
@@ -99,39 +102,39 @@
                 <th>
                     Status
                 </th>
+                <th>
+                    Keterangan
+                </th>
             </tr>
         </thead>
         <tbody>
             @foreach($reports as $report)
                 <tr>
                     <td class="py-1">
-                        {{$report->kode_transaksi}}
+                        {{$report->username}}
                     </td>
-                        <td>
-                          
-                            {{$data->buku->judul}}
-                          
-                          </td>
-
-                          <td>
-                            {{$data->anggota->nama}}
-                          </td>
-                          <td>
-                           {{date('d/m/y', strtotime($data->tgl_pinjam))}}
-                          </td>
-                          <td>
-                            {{date('d/m/y', strtotime($data->tgl_kembali))}}
-                          </td>
-                          <td>
-                          @if($data->status == 'pinjam')
-                            <label class="badge badge-warning">Pinjam</label>
-                          @else
-                            <label class="badge badge-success">Kembali</label>
-                          @endif
-                          </td>
-                        </tr>
-                      @endforeach
-                      </tbody>
-                    </table>
+                    <td>
+                        {{$report->book}}
+                    </td>
+                    <td>
+                        {{date('d/m/y', strtotime($report->borrow_date))}}
+                    </td>
+                    <td>
+                        {{date('d/m/y', strtotime($report->return_date))}}
+                    </td>
+                    <td>
+                    @if($report->status == 'Borrowed')
+                      <label class="badge badge-warning">Pinjam</label>
+                    @else
+                      <label class="badge badge-success">Kembali</label>
+                    @endif
+                    </td>
+                    <td>
+                        {{$report->keterangan}}
+                    </td>
+                </tr>
+            @endforeach
+        </tbody>
+    </table>
 </body>
 </html>

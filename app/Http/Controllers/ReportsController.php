@@ -31,7 +31,7 @@ class ReportsController extends Controller
     public function transactionPdf()
     {
         $reports = DB::table('transactions')
-            ->select('id', 'name', 'borrow_date', 'return_date', 'status')->get();
+            ->select('id', 'username', 'book', 'borrow_date', 'return_date', 'status', 'keterangan')->get();
         $pdf = PDF::loadview('report.report_transactionpdf', compact('reports'));
         return $pdf->download('report_transaction_' . date('Y-m-d_H-i-s') . '.pdf');
     }
