@@ -17,6 +17,14 @@
                         {{ csrf_field() }}
 
                         <div class="form-group">
+                            <label>User Name</label>
+                            <input type="text" name="username" class="form-control" id="username">
+                        </div>
+                        <div class="form-group">
+                            <label>Book</label>
+                            <input type="text" name="book" class="form-control" id="book">
+                        </div>
+                        <div class="form-group">
                             <label>Borrow Date</label>
                             <input type="date" name="borrow_date" class="form-control" id="borrow_date">
                         </div>
@@ -25,8 +33,8 @@
                             <input type="date" name="return_date" class="form-control" id="return_date">
                         </div>
                         <div class="form-group">
-                            <label>Status</label>
-                            <input type="text" name="status" class="form-control" id="status">
+                            <label>Keterangan</label>
+                            <input type="text" name="keterangan" class="form-control" id="keterangan">
                         </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
 

@@ -27,6 +27,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/dashboard', 'App\Http\Controllers\TransactionController@index');
     Route::get('/dashboard/create', 'App\Http\Controllers\TransactionController@create');
     Route::post('/dashboard/store', 'App\Http\Controllers\TransactionController@store');
+    Route::get('/dashboard/delete/{id}', 'App\Http\Controllers\TransactionController@delete');
 
     // genre
     //Route::get('../genre', 'Genre_controller@index');

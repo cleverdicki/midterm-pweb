@@ -15,11 +15,11 @@ class CreateTransactionsTable extends Migration
     {
         Schema::create('transactions', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->string('username');
+            $table->string('book');
             $table->date('borrow_date');
             $table->date('return_date');
-            $table->string('status');
+            $table->string('keterangan');
             $table->timestamps();
         });
     }
