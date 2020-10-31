@@ -7,7 +7,7 @@
             {{session('status')}}
         </div>
     @endif
-        <div class="card mt-5">
+        <div class="card mt-5" >
             <div class="card-header text-center">
                 <strong>Transaction Data</strong>
             </div>
@@ -30,7 +30,7 @@
    @foreach($transaction as $key => $value)
        <tr>
            <td>{{$no++}}</td>
-           <th>{{auth()->user()->name}}</th>
+           <th>{{$value->name}}</th>
            <td>{{$value->borrow_date}}</td>
            <td>{{$value->return_date}}</td>
            <td>{{$value->status}}</td>

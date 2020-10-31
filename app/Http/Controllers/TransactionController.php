@@ -4,13 +4,17 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Transaction;
+use Illuminate\Support\Facades\DB;
 
 class TransactionController extends Controller
 {
     public function index()
     {
-        $transaction = Transaction::all();
+        // $transaction = Transaction::with('uid')->get
+        $transaction = DB::select('select * from transactions join users on transactions.user_id = users.id');
 
+        // var_dump($transaction);
+        // return;
         return view('dashboard', compact('transaction'));
     }
 
