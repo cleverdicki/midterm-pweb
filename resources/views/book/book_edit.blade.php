@@ -15,7 +15,7 @@
                 </div>
                 <div class="form-group">
                     <label for="isbn">ISBN</label>
-                    <input type="text" class="form-control" id="isbn" placeholder="Insert ISBN" name="ISBN" value="{{ $dt->ISBN }}">
+                    <input type="text" class="form-control" id="isbn" placeholder="Insert the book ISBN" name="ISBN" value="{{ $dt->ISBN }}">
                 </div>
                 <div class="form-group">
                     <label for="genre_book">Book Genre</label>
