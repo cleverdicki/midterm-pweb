@@ -105,7 +105,7 @@
     console.log(buttonDelete)
     buttonDelete.forEach( btn => {
         btn.addEventListener('click', (e)=>{
-            const id = e.target.getAttribute('data-modal-id');
+            const id = e.srcElement.getAttribute('data-modal-id');
             console.log(id);
             const idDeleteReview = document.getElementById('deleteReview');
             console.log(idDeleteReview)

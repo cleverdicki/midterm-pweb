@@ -50,7 +50,8 @@
                             <td>
                                 <p>
                                     <a href="{{ url('/listofbook/edit/'.$dt->id) }}" class="btn btn-flat btn-xs btn-warning"><i class="fa fa-edit"></i></a>
-                                    <button href="{{ url('../book/'.$dt->id) }}" class="btn-del btn btn-flat btn-xs btn-danger btn-delete" data-toggle="modal" data-modal-id="{{ $dt->id }}" data-target="#modal-notification"><i class="fa fa-trash"></i>
+                                    <button href="{{ url('../book/'.$dt->id) }}" class="btn-del btn btn-flat btn-xs btn-danger btn-delete" data-toggle="modal" data-modal-id="{{ $dt->id }}" data-target="#modal-notification">
+                                        <i class="fa fa-trash"></i>
                                     </button>
                                     <a href="{{ url('/listofbook/review/'.$dt->title) }}" class="btn btn-flat btn-xs btn-success btn-review"><i class="fa fa-plus"></i></a>
                                 </p>
@@ -122,7 +123,7 @@
     console.log(buttonDelete)
     buttonDelete.forEach( btn => {
         btn.addEventListener('click', (e)=>{
-            const id = e.target.getAttribute('data-modal-id');
+            const id = e.srcElement.getAttribute('data-modal-id');
             console.log(id);
             const idDeleteReview = document.getElementById('deleteReview');
             console.log(idDeleteReview)
