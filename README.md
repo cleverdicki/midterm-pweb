@@ -83,7 +83,12 @@ composer update
 composer require laravel/jetstream
 ```
 
-**4. Install Livewire & Node Module**
+**4. Install `DOMPDF` PACKAGE**
+```
+composer require barryvdh/laravel-dompdf
+```
+
+**5. Install Livewire & Node Module**
 ```
 php artisan jetstream:install livewire
 ```
@@ -92,17 +97,17 @@ Please make sure you have installed [Node JS](https://nodejs.org/en/download/) o
 npm install; npm run dev
 ```
 
-**5. Database Setup**
+**6. Database Setup**
 * Create `perpus0` database on your localhost.
 * Create `.env` file in your IDE or text editor, then move everything from `.env.example` to `.env` file.
 * Change `DB_DATABASE=laravel` to `DB_DATABASE=perpus0` in `.env` file.
 
-**6. Migration**
+**7. Migration**
 ```
 php artisan migrate
 ```
 
-**7. Run the web**
+**8. Run the web**
 ```
 php artisan serve
 ```
@@ -110,5 +115,6 @@ php artisan serve
 ### Source
 * [https://dev.to/kingsconsult/laravel-8-auth-registration-and-login-32jl](https://dev.to/kingsconsult/laravel-8-auth-registration-and-login-32jl)
 * [https://stackoverflow.com/questions/61582940/how-can-i-run-npm-install-npm-run-dev-on-laravel-7](https://stackoverflow.com/questions/61582940/how-can-i-run-npm-install-npm-run-dev-on-laravel-7)
+* [https://stackoverflow.com/questions/41013731/how-to-fix-class-pdf-not-found-in-laravel](https://stackoverflow.com/questions/41013731/how-to-fix-class-pdf-not-found-in-laravel)
 
 
