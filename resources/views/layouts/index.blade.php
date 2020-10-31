@@ -48,7 +48,7 @@
     </div>
 
     <div class="content" class="align-bottom" >
-        <div class="container">
+        <div class="container d-flex">
             @yield('content')
            <!--<h1>This is content</h1>-->
         </div>
