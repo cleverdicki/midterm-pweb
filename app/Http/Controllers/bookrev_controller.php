@@ -6,10 +6,10 @@ use Illuminate\Http\Request;
 
 class bookrev_controller extends Controller
 {
-    public function index($id)
+    public function index($title)
     {
         $title = "Book Review";
-        $data = \DB::table('book_list as b')->select('b.title', 'b.bookreview', 'b.created_at')->get();
+        $data = \DB::table('bookrev')->select('title', 'bookreview', 'created_at')->get();
 
         return view('book.bookaddrev', compact('title', 'data'));
     }

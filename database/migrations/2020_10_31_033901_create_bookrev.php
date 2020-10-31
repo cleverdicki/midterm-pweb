@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTableBookreview extends Migration
+class CreateBookrev extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,14 @@ class CreateTableBookreview extends Migration
      */
     public function up()
     {
-        Schema::create('book_rev', function (Blueprint $table) {
-            $table->string('title', 200);
-            $table->text('bookreview');
-            $table->timestamps();
-
+        Schema::create('bookrev', function (Blueprint $table) {
             $table->engine = 'InnoDB';
+
+            $table->bigIncrements('id');
+            $table->integer('id_title')->unsigned();
+            $table->foreign('id_title')->references('id')->on('book_list');
+            $table->string('review');
+            $table->timestamps();
         });
     }
 
@@ -29,8 +31,6 @@ class CreateTableBookreview extends Migration
      */
     public function down()
     {
-        Schema::table('book_rev', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('bookrev');
     }
 }

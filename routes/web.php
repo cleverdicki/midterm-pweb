@@ -42,7 +42,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::patch('/listofbook/updatebook/{id}', 'App\Http\Controllers\book_controller@updatebook');
     Route::get('/addBook', 'App\Http\Controllers\book_controller@addbookview');
     Route::post('/addBook', 'App\Http\Controllers\book_controller@addbookstore');
-    Route::get('/listofbook/bookrev', 'bookrev_controller@index');
+    Route::get('/listofbook/review/{title}', 'App\Http\Controllers\bookrev_controller@index');
 
     // report
     Route::get('/report', 'App\Http\Controllers\ReportsController@index');
