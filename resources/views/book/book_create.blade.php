@@ -8,7 +8,7 @@
             <form method="POST" action="{{ url('addBook')}}">
                 @csrf
                 <div class="form-group">
-                  <label for="title_book">Judul Buku</label>
+                  <label for="title_book">Book title</label>
                   <input type="text" class="form-control @error('title') is-invalid @enderror" id="title_book" placeholder="Masukkan judul buku" name="title">
                   @error('nama') <div class="invalid-feedback">{{ $message }}</div> @enderror
                 </div>

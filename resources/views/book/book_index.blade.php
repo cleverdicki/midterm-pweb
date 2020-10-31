@@ -50,7 +50,8 @@
                             <td>
                                 <p>
                                     <a href="{{ url('/listofbook/edit/'.$dt->id) }}" class="btn btn-flat btn-xs btn-warning"><i class="fa fa-edit"></i></a>
-                                    <a href="{{ url('../book/'.$dt->id) }}" class="btn btn-flat btn-xs btn-danger btn-delete"><i class="fa fa-trash"></i></a>
+                                    <button href="{{ url('../book/'.$dt->id) }}" class="btn-del btn btn-flat btn-xs btn-danger btn-delete" data-toggle="modal" data-modal-id="{{ $dt->id }}" data-target="#modal-notification"><i class="fa fa-trash"></i>
+                                    </button>
                                     <a href="{{ url('/listofbook/review/'.$dt->title) }}" class="btn btn-flat btn-xs btn-success btn-review"><i class="fa fa-plus"></i></a>
                                 </p>
                             </td>
@@ -65,48 +66,49 @@
 
 <!-- Delete Notif -->
 <div class="modal fade" id="modal-notification" tabindex="-1" role="dialog" aria-labelledby="modal-notification" aria-hidden="true">
-      <div class="modal-dialog modal-danger modal-dialog-centered modal-" role="document">
-        <div class="modal-content bg-gradient-danger">
- 
-          <div class="modal-header">
-            <h6 class="modal-title" id="modal-title-notification">Your attention is required</h6>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">×</span>
-            </button>
+    <div class="modal-dialog modal-danger modal-dialog-centered modal-" role="document">
+      <div class="modal-content bg-gradient-danger">
+
+        <div class="modal-header">
+          <h6 class="modal-title" id="modal-title-notification">Your attention is required</h6>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+
+        <div class="modal-body">
+
+          <div class="py-3 text-center">
+            <i class="ni ni-bell-55 ni-3x"></i>
+            <h4 class="heading mt-4">Do you really want to delete this book?</h4>
           </div>
- 
-          <div class="modal-body">
- 
-            <div class="py-3 text-center">
-              <i class="ni ni-bell-55 ni-3x"></i>
-              <h4 class="heading mt-4">Do you really want to delete this book?</h4>
-            </div>
- 
-          </div>
- 
-          <div class="modal-footer">
-            <form action="" method="post">
+
+        </div>
+
+        <div class="modal-footer">
+            <form method="post" action="{{ route('delete.book') }}">
+              <input type="hidden" name="id" id="deleteReview">
+              
               {{ csrf_field() }}
               {{ method_field('delete') }}
               <button type="submit" class="btn btn-white">Ok, Got it</button>
-            </form>
-            <button type="button" class="btn btn-link text-white ml-auto" data-dismiss="modal">Close</button>
-          </div>
- 
-        </div>
+          </form>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div> 
       </div>
     </div>
+  </div>
 
 @endsection
 
-@section('scripts')
+@section('js')
 
 <script type="text/javascript">
     $(document).ready(function(){
         var flash = "{{ Session::has('success') }}";
         if (flash){
             var msg = "{{ Session::get('success') }}";
-            alert msg;
+            alert (msg);
         }
         
         $('.btn-refresh').click(function(e){
@@ -114,13 +116,18 @@
             location.reload();
         })
 
-        $('body').on('click','.btn-delete',function(e){
-            e.preventDefault();
-            var url = $(this).attr('href');
-            $('#modal-notification').find('form').attr('action',url);
-        
-            $('#modal-notification').modal();
-        })
+
+    })
+    const buttonDelete = document.querySelectorAll('.btn-del');
+    console.log(buttonDelete)
+    buttonDelete.forEach( btn => {
+        btn.addEventListener('click', (e)=>{
+            const id = e.target.getAttribute('data-modal-id');
+            console.log(id);
+            const idDeleteReview = document.getElementById('deleteReview');
+            console.log(idDeleteReview)
+            idDeleteReview.value = id;
+        }) 
     })
 </script>
 

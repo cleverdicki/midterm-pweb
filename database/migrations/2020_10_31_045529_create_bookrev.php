@@ -17,8 +17,9 @@ class CreateBookrev extends Migration
             $table->engine = 'InnoDB';
 
             $table->bigIncrements('id');
-            $table->integer('id_title')->unsigned();
+            $table->integer('id_title')->nullable()->unsigned();
             $table->foreign('id_title')->references('id')->on('book_list');
+            $table->string('title');
             $table->string('review');
             $table->timestamps();
         });

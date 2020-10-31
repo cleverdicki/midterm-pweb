@@ -3,32 +3,32 @@
 @section('content')
 
 <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-12 mt-3">
         <p>
             <a href="javascript:history.back()" class="btn btn-sm btn-flat btn-primary">Back</a>
         </p>
         <div class="box box-warning">
             <div class="box-header">
-                <h4>Review {{ $title }}</h4>
+                <h4>Review {{ $dt->title }}</h4>
             </div>
             <div class="box-body">
-                <form role="form" method="post" action="{{ url('/updateRev'. $dt->title) }}">
+                <form role="form" method="post" action="{{ url('/listofbook/editreview/book/'.$dt->id) }}">
                     @method('patch')
-                    @csrf
+                    {{ csrf_field() }}
                     <div class="box-body">
                         <div class="form-group">
-                            <label for="title">Book Title</label>
-                            <input type="text" name="title" value="{{ $dt->title }}" class="form-control @error('title') is-invalid @enderror" id="title" placeholder="Book Title">
+                            <label for="exampleInputEmail1">Book Title</label>
+                        <input type="text" name="title" class="form-control @error('title') is-invalid @enderror" id="exampleInputEmail1" placeholder="Book Title" value="{{ $dt->title }}">
                         </div>
                         <div class="form-group">
-                            <label for="bookreview">Book Review</label>
-                            <textarea class="form-control summernote @error('title') is-invalid @enderror" name="addreview" value="{{ $dt->book_review }}" id="addreview" placeholder="Write down your review in this box"></textarea>
+                            <label for="exampleInputPassword1">Book Review</label>
+                            <textarea class="form-control @error('title') is-invalid @enderror summernote" name="review" id="review" placeholder="Write down your review in this box">{{ $dt->review }}</textarea>
                         </div>
                     </div>
                     <!-- /.box-body -->
         
                     <div class="box-footer">
-                        <button type="submit" class="btn btn-primary">Update</button>
+                        <button type="submit" class="btn btn-primary">Submit</button>
                     </div>
                 </form>
             </div>

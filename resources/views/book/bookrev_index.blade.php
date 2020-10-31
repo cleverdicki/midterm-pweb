@@ -3,12 +3,12 @@
 @section('content')
 
 <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-12 mt-3">
         <p>
             <button class="btn btn-flat btn-sm btn-warning btn-refresh"><i class="fa fa-refresh"></i> Refresh</button>
         </p>
         <p>
-            <a href="/bookrev/addrev" class="btn btn-flat btn-primary btn-plus">Add Review</a>
+            <a href="{{ url('/listofbook/review/book/'.$title) }}" class="btn btn-flat btn-primary btn-plus">Add Review</a>
         </p>
         <div class="box box-warning">
             <div class="box-header">
@@ -27,14 +27,15 @@
                     <tbody>
                         @foreach($data as $e=>$dt)
                         <tr>
-                            <td>{{ $e+1 }}</td>
+                            {{-- <td>{{ $e+1 }}</td> --}}
                             <td>{{ $dt->title }}</td>
-                            <td>{{ $dt->book_review }}</td>
+                            <td>{{ $dt->review }}</td>
                             <td>{{ $dt->created_at }}</td>
                             <td>
                                 <p>
-                                    <a href="{{ url{'../book/'.$dt->id} }}" class="btn btn-flat btn-xs btn-warning"><i class="fa fa-pencil"></i></a>
-                                    <a href="{{ url{'../book/'.$dt->id} }}" class="btn btn-flat btn-xs btn-danger btn-delete"><i class="fa fa-trash"></i></a>
+                                    <a href="{{ url('/listofbook/editreview/book/'.$dt->id) }}" class="btn btn-flat btn-xs btn-warning"><i class="fa fa-edit"></i></a>
+                                    <button href="{{ url('../book/'.$dt->id) }}" class="btn-del btn btn-flat btn-xs btn-danger btn-delete" data-toggle="modal" data-modal-id="{{ $dt->id }}" data-target="#modal-notification"><i class="fa fa-trash"></i>
+                                    </button>
                                 </p>
                             </td>
                         </tr>
@@ -68,28 +69,29 @@
           </div>
  
           <div class="modal-footer">
-            <form action="" method="post">
-              {{ csrf_field() }}
-              {{ method_field('delete') }}
-              <button type="submit" class="btn btn-white">Ok, Got it</button>
+              <form method="post" action="{{ route('delete.review') }}">
+                <input type="hidden" name="id" id="deleteReview">
+                
+                {{ csrf_field() }}
+                {{ method_field('delete') }}
+                <button type="submit" class="btn btn-white">Ok, Got it</button>
             </form>
-            <button type="button" class="btn btn-link text-white ml-auto" data-dismiss="modal">Close</button>
-          </div>
- 
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div> 
         </div>
       </div>
     </div>
 
 @endsection
 
-@section('scripts')
+@section('js')
 
 <script type="text/javascript">
     $(document).ready(function(){
         var flash = "{{ Session::has('success') }}";
         if (flash){
-            var msg = "{{ Session::get(''success') }}";
-            alert msg;
+            var msg = "{{ Session::get('success') }}";
+            alert (msg);
         }
         
         $('.btn-refresh').click(function(e){
@@ -97,13 +99,18 @@
             location.reload();
         })
 
-        $('body').on('click','.btn-delete',function(e){
-            e.preventDefault();
-            var url = $(this).attr('href');
-            $('#modal-notification').find('form').attr('action',url);
-        
-            $('#modal-notification').modal();
-        })
+
+    })
+    const buttonDelete = document.querySelectorAll('.btn-del');
+    console.log(buttonDelete)
+    buttonDelete.forEach( btn => {
+        btn.addEventListener('click', (e)=>{
+            const id = e.target.getAttribute('data-modal-id');
+            console.log(id);
+            const idDeleteReview = document.getElementById('deleteReview');
+            console.log(idDeleteReview)
+            idDeleteReview.value = id;
+        }) 
     })
 </script>
 
