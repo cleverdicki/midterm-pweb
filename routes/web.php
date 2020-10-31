@@ -29,14 +29,6 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/dashboard/store', 'App\Http\Controllers\TransactionController@store');
     Route::get('/dashboard/delete/{id}', 'App\Http\Controllers\TransactionController@delete');
 
-    // genre
-    //Route::get('../genre', 'Genre_controller@index');
-    //Route::get('../genre/add', 'Genre_controller@add');
-    //Route::post('../genre/add', 'Genre_controller@store');
-    //Route::get('../genre/{id}', 'Genre_controller@edit');
-    //Route::put('../genre/{id}', 'Genre_controller@update');
-    //Route::delete('../genre/{id}', 'Genre_controller@delete');
-
     // book
     Route::get('/listofbook', 'App\Http\Controllers\book_controller@index');
     Route::get('/listofbook/edit/{id}', 'App\Http\Controllers\book_controller@editbook');
@@ -44,6 +36,12 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/addBook', 'App\Http\Controllers\book_controller@addbookview');
     Route::post('/addBook', 'App\Http\Controllers\book_controller@addbookstore');
     Route::get('/listofbook/review/{title}', 'App\Http\Controllers\bookrev_controller@index');
+    Route::get('/listofbook/review/book/{title}', 'App\Http\Controllers\bookrev_controller@addrev');
+    Route::post('/listofbook/review/book/{title}', 'App\Http\Controllers\bookrev_controller@addrevbook');
+    Route::get('/listofbook/editreview/book/{id}', 'App\Http\Controllers\bookrev_controller@editrev');
+    Route::patch('/listofbook/editreview/book/{id}', 'App\Http\Controllers\bookrev_controller@updaterev');
+    Route::delete('/listofbook/editreview/book/', 'App\Http\Controllers\bookrev_controller@deleterev')->name('delete.review');
+    Route::delete('/listofbook/editbook/book/', 'App\Http\Controllers\book_controller@deletebook')->name('delete.book');
 
     // report
     Route::get('/report', 'App\Http\Controllers\ReportsController@index');

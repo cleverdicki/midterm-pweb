@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Svg\Tag\Rect;
 
 class book_controller extends Controller
 {
@@ -22,7 +23,7 @@ class book_controller extends Controller
 
     public function addbookstore(Request $request)
     {
-        $test = DB::table('book_list')->insert([
+        DB::table('book_list')->insert([
             'genre' => $request->genre,
             'ISBN' => $request->ISBN,
             'title' => $request->title,
@@ -30,7 +31,9 @@ class book_controller extends Controller
             'publisher' => $request->publisher,
             'year' => $request->year,
             'desc' => $request->desc,
-            'stock' => $request->stock
+            'stock' => $request->stock,
+            'created_at' => now(),
+            'updated_at' => now()
         ]);
 
         return redirect('dashboard')->with('status', 'Add book Successfully!');
@@ -57,41 +60,19 @@ class book_controller extends Controller
                 'publisher' => $request->publisher,
                 'year' => $request->year,
                 'desc' => $request->desc,
-                'stock' => $request->stock
+                'stock' => $request->stock,
+                'update_at' => now()
             ]);
 
         return redirect('/listofbook')->with('status', 'Edit book Successfully!');
         // return redirect ('../book');
     }
 
-    public function deletebook($id)
+    public function deletebook(Request $request)
     {
-        DB::table('book_list')->where('id', $id)->delete();
+        DB::table('book_list')->where('id', $request->id)->delete();
 
-        Session::flash('success', 'Book has been deleted');
-        // return redirect('../book');
-    }
-
-    public function addrev()
-    {
-        $title = 'Add Review';
-
-        return view('book.book_addrev', compact('title'));
-    }
-
-    public function storerev(Request $request)
-    {
-        $title = $request->title;
-        $addreview = $request->addreview;
-
-        DB::table('book_review')->insert([ //tabel review blm ada
-            'title' => $title,
-            'addreview' => $addreview,
-            'created_at' => date('Y-m-d H:i:s'),
-            'updated_at' => date('Y-m-d H:i:s'),
-        ]);
-
-        Session::flash('success', 'Your review has been added!');
-        return redirect('../book/..');
+        \Session::flash('success', 'Book has been deleted');
+        return redirect()->back();
     }
 }

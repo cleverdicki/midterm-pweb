@@ -12,7 +12,7 @@
                 <h4>Review {{ $title }}</h4>
             </div>
             <div class="box-body">
-                <form role="form" method="post" action="{{ url('../book/bookrev_index') }}">
+                <form role="form" method="post" action="{{ url('/listofbook/review/book/'.$title) }}">
                     {{ csrf_field() }}
                     <div class="box-body">
                         <div class="form-group">
@@ -21,7 +21,7 @@
                         </div>
                         <div class="form-group">
                             <label for="exampleInputPassword1">Book Review</label>
-                            <textarea class="form-control @error('title') is-invalid @enderror summernote" name="addreview" id="addreview" placeholder="Write down your review in this box"></textarea>
+                            <textarea class="form-control @error('title') is-invalid @enderror summernote" name="review" id="review" placeholder="Write down your review in this box"></textarea>
                         </div>
                     </div>
                     <!-- /.box-body -->
