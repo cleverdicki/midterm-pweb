@@ -19,10 +19,10 @@
                     <thead>
                         <tr>
                             <th>No</th>
-                            <th>Nama Peminjam</th>
-                            <th>Buku</th>
-                            <th>Tanggal Pinjam</th>
-                            <th>Tanggal Kembali</th>
+                            <th>Name</th>
+                            <th>Book</th>
+                            <th>Borrow Date</th>
+                            <th>Return Date</th>
                             <th> Status</th>
                             <th>Action</th>
                         </tr>
