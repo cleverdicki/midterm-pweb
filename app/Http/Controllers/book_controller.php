@@ -61,7 +61,7 @@ class book_controller extends Controller
                 'year' => $request->year,
                 'desc' => $request->desc,
                 'stock' => $request->stock,
-                'update_at' => now()
+                'updated_at' => now()
             ]);
 
         return redirect('/listofbook')->with('status', 'Edit book Successfully!');
