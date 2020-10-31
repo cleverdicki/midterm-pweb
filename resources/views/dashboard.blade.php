@@ -36,13 +36,13 @@
                                     <td>{{$value->book}}</td>
                                     <td>{{$value->borrow_date}}</td>
                                     <td>{{$value->return_date}}</td>
-                                    <td> Pinjam </td>
+                                    <td>{{$value->status}} </td>
                                     <td>
                                         <div class="dropdown">
                                             <button class="dropbtn">Action</button>
                                             <div class="dropdown-content">
-                                            <a href="#">Sudah kembali</a>
-                                            <a href="/dashboard/delete/{{$value->id}}">Hapus</a>
+                                            <a href="/dashboard/update/{{$value->id}}">Returned</a>
+                                            <a href="/dashboard/delete/{{$value->id}}">Delete</a>
                                             </div>
                                         </div>
                                     </td>

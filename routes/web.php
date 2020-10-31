@@ -28,6 +28,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/dashboard/create', 'App\Http\Controllers\TransactionController@create');
     Route::post('/dashboard/store', 'App\Http\Controllers\TransactionController@store');
     Route::get('/dashboard/delete/{id}', 'App\Http\Controllers\TransactionController@delete');
+    Route::get('/dashboard/update/{id}', 'App\Http\Controllers\TransactionController@update');
 
     // book
     Route::get('/listofbook', 'App\Http\Controllers\book_controller@index');

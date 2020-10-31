@@ -20,6 +20,7 @@ class CreateTransactionsTable extends Migration
             $table->date('borrow_date');
             $table->date('return_date');
             $table->string('keterangan');
+            $table->string('status');
             $table->timestamps();
         });
     }

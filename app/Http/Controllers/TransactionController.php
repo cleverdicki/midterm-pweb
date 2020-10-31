@@ -42,6 +42,19 @@ class TransactionController extends Controller
         return redirect('/dashboard');
     }
 
+    public function update($id)
+    {
+        //DB::table('transactions')
+        // $transaction= Transaction::whereIn('id')->get();
+        // foreach($transaction as $value)
+        // {
+        //     $value->fill(['status' => 'Sudah kembali'])->save();
+        // }
+        // DB::update('update transactions set status = "Borrowed", array('SudahKembali'));
+        DB::table('transactions')->where('id', $id)->update(array('status' => "Returned"));
+        return redirect('/dashboard');
+    }
+
     public function delete($id)
     {
         // $transaction = Transaction::find($id);
